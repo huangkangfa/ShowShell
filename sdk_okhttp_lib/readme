@@ -1,0 +1,302 @@
+//get请求示例
+OkHttpUtil.get("http://www.baidu.com", null, new Callback() {
+                    @Override
+                    public void onFailure(Call call, final IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvResult.setText("get请求失败：" + e.getMessage());
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        final String s=response.body().string();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvResult.setText("get请求成功：" + s);
+                            }
+                        });
+                    }
+                });
+
+//post请求示例
+RequestParams params=new RequestParams();
+                params.put("name","hkf");
+                params.put("pwd","123456");
+                OkHttpUtil.post("https://www.baidu.com", params, new Callback() {
+                    @Override
+                    public void onFailure(Call call, final IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvResult.setText("post请求失败：" + e.getMessage());
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        final String s=response.body().string();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvResult.setText("post请求成功：" + s);
+                            }
+                        });
+                    }
+                });
+
+//文件下载示例
+OkHttpUtil.downloadFile("下载地址url",new DownloadCallback("文件名", new DownloadListener() {
+                    @Override
+                    public void onProgress(int progress) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Object responseObj) {
+                        File mDownloadFile= (File) responseObj;
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+
+                    }
+                }));
+
+//文件上传示例
+RequestParams params1=new RequestParams();
+                    File f=new File("要上传的文件");
+                    params1.put("上传的文件key",f);
+                    params1.put("上传其他字段的key","要上传的字段");
+                    OkHttpUtil.uploadFile("上传服务器地址", params1, new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+
+                        }
+                    });
+
+本sdk没对接收结果进行json转换以及结果过滤处理，所以需要自定义Callback进行处理
+
+/**
+ * 接口响应码
+ *
+ * @author Robin 2014年7月14日 下午12:55:42
+ */
+public class RetCode {
+
+	/** 成功 */
+	public static final String SUCCESS = "0";
+
+	/** 系统错误 */
+	public static final String SYS_ERROR = "10001";
+	/** 没有权限 */
+	public static final String NO_PERMITTION = "10002";
+	/** 系统繁忙 */
+	public static final String SYSTEM_BUSY = "10003";
+	/** Illegal request */
+	public static final String ILLEGAL_REQUEST = "10004";
+	/** 请求方法不支持 */
+	public static final String ILLEGAL_REQUEST_METHOD = "10005";
+
+	/* 以下是业务上的错误 */
+	/** 参数错误 */
+	public static final String ILLEGAL_ARGS = "20001";
+	/** 数据异常 */
+	public static final String WRONG_DATA = "20002";
+	/** 没有数据 */
+	public static final String NO_DATA = "20003";
+
+	/*---------------------------Account-----------------------------*/
+	/** 用户不存在 */
+	public static final String ACCOUNT_NOT_EXISTS = "30001";
+	/** 账号已经存在 */
+	public static final String ACCOUNT_EXIST = "30002";
+	/** 用户名或者密码错误 */
+	public static final String ACCOUNT_WRONG_PASSWORD = "30003";
+
+}
+
+
+
+
+
+
+
+/**
+ * 请求结果
+ * Created by wanglei on 16/3/29.
+ */
+public class Result {
+
+    private String retCode;
+    private String data;
+    private String errorMsg;
+    private String json;
+    //分页数据
+    private int pageNum;//当前页
+    private int pageCount;//每页条数
+    private int totalPage;//总页数
+    private int totalCount;//总条数
+
+
+    public boolean isSuccess() {
+        return RetCode.SUCCESS.equals(retCode);
+    }
+
+    /**
+     * 土司错误信息
+     */
+    public void printErrorMsg() {
+        if (!TextUtils.isEmpty(errorMsg)) {
+            PrintUtil.toastMakeText(errorMsg);
+        }
+    }
+
+    /**
+     * <T> T
+     */
+    public <T> T getObj(Class<T> cls) {
+        return JSONUtil.getObj(data, cls);
+    }
+
+    /**
+     * <T> List<T>
+     */
+    public <T> List<T> getListObj(Class<T> cls) {
+        return JSONUtil.getListObj(data, cls);
+    }
+
+
+    // ===================get set 方法========================
+
+    public String getRetCode() {
+        return retCode;
+    }
+
+    public void setRetCode(String retCode) {
+        this.retCode = retCode;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
+    public int getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+}
+
+
+
+
+/**
+ * 提供请求结果快捷功能
+ * Created by wanglei on 16/3/29.
+ */
+public abstract class ResultCallBack implements OnResponseListener<String> {
+
+    @Override
+    public void onStart(int what) {
+    }
+
+    @Override
+    public void onSucceed(int what, Response<String> response) {
+        String resultStr = response.get();
+        PrintUtil.log(GeekHttp.TAG, "onSucceed:" + what + "\n" + resultStr);
+        Result result = null;
+        if (!TextUtils.isEmpty(resultStr)) {
+            result = JSONUtil.getObj(resultStr, Result.class);
+        }
+        if (result == null) {
+            result = new Result();
+            result.setRetCode(RetCode.WRONG_DATA);
+            result.setErrorMsg("数据异常");
+        } else {
+            result.setJson(resultStr);
+        }
+        onSuccess(what, result);
+
+    }
+
+    @Override
+    public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
+        PrintUtil.log(GeekHttp.TAG, "onFailed:" + what + "\nurl:" + url + "\ntag:" + tag + "\nexception:" + exception.getLocalizedMessage() + "\nresponseCode:" + responseCode + "\nnetworkMillis:" + networkMillis);
+        Result result = new Result();
+        result.setRetCode("E"+responseCode);
+        result.setErrorMsg("网络异常");
+        onSuccess(what,result);
+    }
+
+    @Override
+    public void onFinish(int what) {
+    }
+
+    public abstract void onSuccess(int what, Result result);
+
+}
+
+
+
+
+
+
+
+
+

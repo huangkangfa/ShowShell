@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+
+    <!--***********全局用色***********-->
+    <!--中性色  黑白灰-->
+    <color name="global_white_ffffff">#ffffff</color>
+    <color name="global_gray_eeeeee">#eeeeee</color>
+    <color name="global_gray_c3c3c3">#c3c3c3</color>
+    <color name="global_gray_b4b4b4">#b4b4b4</color>
+    <color name="global_gray_999999">#999999</color>
+    <color name="global_gray_666666">#666666</color>
+    <color name="global_black_333333">#333333</color>
+    <!--主色调-->
+    <color name="global_yellow_f7d721">#f7d721</color>
+    <!--辅助色-->
+    <color name="global_red_ff7e00">#ff7e00</color>
+    <color name="global_blue_1c8cee">#1c8cee</color>
+
+
+
+
+    <!--***********背景用色***********-->
+    <color name="bg_white_ffffff">#ffffff</color>
+    <color name="bg_white_f2f2f2">#f2f2f2</color>
+    <color name="bg_gray_c3c3c3">#c3c3c3</color>
+    <color name="bg_yellow_f7d721">#f7d721</color>
+
+
+
+
+    <!--***********分割线用色***********-->
+    <color name="line_gray_c3c3c3">#c3c3c3</color>
+    <color name="line_white_f2f2f2">#f2f2f2</color>
+
+
+
+    <!--***********文字用色***********-->
+    <color name="text_white_ffffff">#ffffff</color>
+    <color name="text_gray_c3c3c3">#c3c3c3</color>
+    <color name="text_gray_999999">#999999</color>
+    <color name="text_gray_666666">#666666</color>
+    <color name="text_black_333333">#333333</color>
+    <color name="text_red_ff7e00">#ff7e00</color>
+    <color name="text_blue_1c8cee">#1c8cee</color>
+    
+    
+    <!--***********图标用色***********-->
+    <color name="icon_white_ffffff">#ffffff</color>
+    <color name="icon_gray_c3c3c3">#c3c3c3</color>
+    <color name="icon_yellow_f7d721">#f7d721</color>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white_ffffff"
+    android:clipChildren="false">
+
+    <include
+        android:id="@+id/head"
+        layout="@layout/include_common_head"/>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_below="@+id/head"
+        android:background="@color/bg_yellow_f7d721"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/foot"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bg_gray_c3c3c3"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/bottom_index_0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/bottom_index_0_img"
+                android:layout_width="@dimen/x25"
+                android:layout_height="@dimen/x25"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:id="@+id/bottom_index_0_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bottom_index_0_img"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:text="首页"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_index_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/bottom_index_1_img"
+                android:layout_width="@dimen/x25"
+                android:layout_height="@dimen/x25"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/bottom_index_1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bottom_index_1_img"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:text="鱼塘"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_index_2"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_gravity="bottom">
+
+            <ImageView
+                android:id="@+id/bottom_index_2_img"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/bottom_index_2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bottom_index_2_img"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:text="添加"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_index_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/bottom_index_3_img"
+                android:layout_width="@dimen/x25"
+                android:layout_height="@dimen/x25"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/bottom_index_3_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bottom_index_3_img"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:text="消息"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_index_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/bottom_index_4_img"
+                android:layout_width="@dimen/x25"
+                android:layout_height="@dimen/x25"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:id="@+id/bottom_index_4_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bottom_index_4_img"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:text="我的"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ShowShell.iml" filepath="$PROJECT_DIR$/ShowShell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk_base_lib/sdk_base_lib.iml" filepath="$PROJECT_DIR$/sdk_base_lib/sdk_base_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk_okhttp_lib/sdk_okhttp_lib.iml" filepath="$PROJECT_DIR$/sdk_okhttp_lib/sdk_okhttp_lib.iml" />
+    </modules>
+  </component>
+</project>
